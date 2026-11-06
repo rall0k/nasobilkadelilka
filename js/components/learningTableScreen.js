@@ -1,7 +1,8 @@
 export function learningTableScreen(props) {
     return {
         $template: /*html*/`
-			<section v-scope="headerApp({ cancel: true, eyes: true, book: false })"></section>
+			<section v-scope="headerApp({ cancel: true, book: false })"></section>
+			learning table screen
 		`,
     }
 }
