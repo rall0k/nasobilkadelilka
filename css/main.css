@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+	--color01: #fff;
+	--color02: #70D2FF;
+	--color03: #9CEA5D;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 16px;
+
+	body {
+		min-height: 100vh;
+	}
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasobilka/Delilka</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+	
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/headerApp.css">
+    <link rel="stylesheet" href="css/components/homeScreen.css">
+    <link rel="stylesheet" href="css/components/gameScreen.css">
+    <link rel="stylesheet" href="css/components/learningTableScreen.css">
+    <link rel="stylesheet" href="css/components/newGameSettingsScreen.css">
+    <link rel="stylesheet" href="css/components/resultScreen.css">
+
+    <script type="module" src="js/main.js" defer></script>
+</head>
+<body>
+	<template v-if="screen == 'homeScreen'">
+		<section v-scope="homeScreen()"></section>
+	</template>
+	<template v-if="screen == 'learningTableScreen'">
+		<section v-scope="learningTableScreen()"></section>
+	</template>
+	<template v-if="screen == 'newGameSettingsScreen'">
+		<section v-scope="newGameSettingsScreen()"></section>
+	</template>
+	<template v-if="screen == 'gameScreen'">
+		<section v-scope="gameScreen()"></section>
+	</template>
+	<template v-if="screen == 'resultScreen'">
+		<section v-scope="resultScreen()"></section>
+	</template>
+</body>
+</html>
