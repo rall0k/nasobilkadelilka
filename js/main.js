@@ -7,7 +7,7 @@ import { gameScreen } from './components/gameScreen.js'
 import { resultScreen } from './components/resultScreen.js'
 
 createApp({
-    screen: "learningTableScreen", // homeScreen | newGameSettingsScreen | gameScreen | resultScreen | learningTableScreen
+    screen: "newGameSettingsScreen", // homeScreen | newGameSettingsScreen | gameScreen | resultScreen | learningTableScreen
 	headerApp,
 	homeScreen,
     learningTableScreen,
