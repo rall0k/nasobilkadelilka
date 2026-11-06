@@ -1,0 +1,49 @@
+.learningTableScreen {
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 0 2rem;
+			padding: 2rem;
+			max-width: 1200px;
+			margin: 0 auto;
+
+			.table {
+				margin-top: 3rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				border: 1px solid var(--color02);
+				border-radius: 3px;
+				position: relative;
+				flex-basis: 200px;
+
+				.caption {
+					position: absolute;
+					width: 80px;
+					padding: .25rem;
+					border: 1px solid var(--color02);
+					border-radius: 3px;
+					top: -25px;
+					background: var(--color01);
+					text-align: center;
+					margin: 0 auto;
+					font-size: 1.55rem;
+				}
+				.rows {
+					padding: 2rem;
+					display: flex;
+					flex-direction: column;
+					gap: .5rem;
+
+					.row {}
+				}
+			}
+		}
+	}
+}

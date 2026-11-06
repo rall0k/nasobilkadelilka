@@ -16,5 +16,8 @@ html {
 
 	body {
 		min-height: 100vh;
+		font-family: "Afacad", sans-serif;
+		color: var(--color02);
+		font-size: 1.55rem;
 	}
 }
