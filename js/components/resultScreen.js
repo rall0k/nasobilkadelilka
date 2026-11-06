@@ -1,5 +1,7 @@
 export function resultScreen(props) {
     return {
-        $template: `result screen`,
+        $template: /*html*/`
+			<section v-scope="headerApp({ cancel: true, eyes: false, book: false })"></section>
+		`,
     }
 }
