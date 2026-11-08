@@ -45,7 +45,7 @@
 					gap: 1.5rem;
 
 					button {
-						width: 5rem;
+						min-width: 5rem;
 						height: 5rem;
 						padding: 1.5rem;
 						border: 1px solid var(--color02);
@@ -58,6 +58,11 @@
 						display: flex;
 						align-items: center;
 						justify-content: center;
+
+						&.choice-text {
+							width: auto;
+							padding: 1rem 2rem;
+						}
 
 						&.active {
 							background: var(--color02);

@@ -11,10 +11,12 @@ createApp({
 	gameSettings: {
 		numbers: [],
 		queue: [],
-		timeLimit: null
+		timeLimit: null,
+		mode: 'multiply'
 	},
 	numbers: [],
 	timeLimit: null, // null (bez limitu) | 3 | 5 | 10
+	mode: 'multiply', // 'multiply' (Násobilka) | 'divide' (Delilka)
 	headerApp,
 	homeScreen,
     learningTableScreen,

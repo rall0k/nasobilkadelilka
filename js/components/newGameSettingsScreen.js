@@ -7,7 +7,7 @@ function shuffleArray(array) {
 	return arr
 }
 
-function generateChoices(number, multiplier) {
+function generateMultiplyChoices(number, multiplier) {
 	const correct = number * multiplier
 	const candidates = new Set()
 
@@ -39,6 +39,20 @@ function generateChoices(number, multiplier) {
 	return shuffleArray([correct, ...wrongChoices])
 }
 
+function generateDivideChoices(quotient) {
+	const correct = quotient
+	const candidates = new Set()
+
+	for (let i = 1; i <= 10; i++) {
+		if (i !== correct) {
+			candidates.add(i)
+		}
+	}
+
+	const wrongChoices = shuffleArray([...candidates]).slice(0, 3)
+	return shuffleArray([correct, ...wrongChoices])
+}
+
 export function newGameSettingsScreen(props) {
     return {
         $template: /*html*/`
@@ -55,6 +69,25 @@ export function newGameSettingsScreen(props) {
 											:class="{'active': numbers.includes(number)}"
 								>
 									{{ number }}
+								</button>
+							</section>
+						</section>
+						<section class="box">
+							<h1 class="caption">Režim</h1>
+							<section class="choices">
+								<button 
+									class="choice-text"
+									@click="setMode('multiply')"
+									:class="{'active': mode === 'multiply'}"
+								>
+									Násobilka
+								</button>
+								<button 
+									class="choice-text"
+									@click="setMode('divide')"
+									:class="{'active': mode === 'divide'}"
+								>
+									Delilka
 								</button>
 							</section>
 						</section>
@@ -77,14 +110,6 @@ export function newGameSettingsScreen(props) {
 								</button>
 							</section>
 						</section>
-						<!-- <section class="box">
-							<h1 class="caption">Režím</h1>
-							<section class="choices"></section>
-						</section>
-						<section class="box">
-							<h1 class="caption">Počet odpovedí</h1>
-							<section class="choices"></section>
-						</section> -->
 					</section>
 					<button class="start-btn" @click="startGame()" v-if="numbers.length">Začať hru</button>
 				</section>
@@ -99,26 +124,45 @@ export function newGameSettingsScreen(props) {
 				this.numbers.push(number)
 			}
 		},
+		setMode(selectedMode) {
+			this.mode = selectedMode
+		},
 		setTimeLimit(limit) {
 			this.timeLimit = limit
 		},
 		startGame() {
 			const examples = []
 			const sortedNumbers = [...this.numbers].sort((a, b) => a - b)
+			const isDivide = this.mode === 'divide'
 
 			sortedNumbers.forEach(number => {
 				for (let i = 1; i <= 10; i++) {
-					examples.push({
-						n1: number,
-						n2: i,
-						attempts: 0,
-						wrongAttempts: 0,
-						solved: false,
-						status: 'unanswered', // unanswered | correct | wrong
-						example: `${number} x ${i}`,
-						result: number * i,
-						choices: generateChoices(number, i)
-					})
+					if (isDivide) {
+						const dividend = number * i
+						examples.push({
+							n1: number,
+							n2: i,
+							attempts: 0,
+							wrongAttempts: 0,
+							solved: false,
+							status: 'unanswered', // unanswered | correct | wrong
+							example: `${dividend} : ${number}`,
+							result: i,
+							choices: generateDivideChoices(i)
+						})
+					} else {
+						examples.push({
+							n1: number,
+							n2: i,
+							attempts: 0,
+							wrongAttempts: 0,
+							solved: false,
+							status: 'unanswered', // unanswered | correct | wrong
+							example: `${number} x ${i}`,
+							result: number * i,
+							choices: generateMultiplyChoices(number, i)
+						})
+					}
 				}
 			})
 
@@ -127,7 +171,8 @@ export function newGameSettingsScreen(props) {
 			this.gameSettings = {
 				numbers: shuffledExamples,
 				queue: shuffledExamples.map((_, index) => index),
-				timeLimit: this.timeLimit
+				timeLimit: this.timeLimit,
+				mode: this.mode
 			}
 			this.screen = 'gameScreen'
 		}
