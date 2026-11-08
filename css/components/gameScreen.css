@@ -36,37 +36,6 @@
 					}
 				}
 			}
-
-			.progress-dots {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
-				gap: .5rem;
-
-				.dot {
-					width: 1.1rem;
-					height: 1.1rem;
-					border: 1px solid var(--color02);
-					border-radius: 3px;
-					background: var(--color01);
-					transition: 250ms;
-
-					&.solved {
-						background: var(--color03);
-						border-color: var(--color03);
-					}
-
-					&.wrong {
-						background: var(--color04);
-						border-color: var(--color04);
-					}
-
-					&.current {
-						transform: scale(1.25);
-						box-shadow: 0 0 0 2px var(--color02);
-					}
-				}
-			}
 		}
 
 		.box {

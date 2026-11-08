@@ -22,18 +22,6 @@ export function gameScreen(props) {
 								Čas: <strong>{{ remainingTime }}s</strong>
 							</span>
 						</div>
-						<div class="progress-dots">
-							<span 
-								v-for="(item, idx) in gameSettings.numbers" 
-								class="dot"
-								:class="{
-									'solved': item.solved,
-									'wrong': !item.solved && item.status === 'wrong',
-									'current': idx === gameSettings.queue[0]
-								}"
-								:title="item.example"
-							></span>
-						</div>
 					</section>
 
 					<section class="box" :class="{ 'box-wrong': currentExample()?.status === 'wrong' && !currentExample()?.solved }">
