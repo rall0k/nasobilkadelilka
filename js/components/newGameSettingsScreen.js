@@ -102,7 +102,7 @@ export function newGameSettingsScreen(props) {
 									&infin;
 								</button>
 								<button 
-									v-for="sec in [3, 5, 10]"
+									v-for="sec in [3, 5, 10, 15, 20, 25, 30]"
 									@click="setTimeLimit(sec)"
 									:class="{'active': timeLimit === sec}"
 								>
