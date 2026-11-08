@@ -50,8 +50,8 @@ export function resultScreen(props) {
 									:class="{ 'row-perfect': item.wrongAttempts === 0, 'row-mistake': item.wrongAttempts > 0 }"
 								>
 									<span class="example-text">{{ item.example }} = {{ item.result }}</span>
-									<span class="attempt-badge" v-if="item.wrongAttempts === 0">1. pokus</span>
-									<span class="attempt-badge error" v-else>Chyby: {{ item.wrongAttempts }}x</span>
+									<i class="fa-solid fa-circle-check check-icon" v-if="item.wrongAttempts === 0"></i>
+									<span class="attempt-circle" v-else>{{ item.attempts }}x</span>
 								</div>
 							</section>
 						</section>

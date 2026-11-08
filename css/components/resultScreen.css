@@ -104,7 +104,7 @@
 				border: 1px solid var(--color02);
 				border-radius: 3px;
 				position: relative;
-				flex-basis: 260px;
+				flex-basis: 240px;
 
 				.caption {
 					position: absolute;
@@ -133,17 +133,25 @@
 						align-items: center;
 						gap: 1rem;
 
-						.attempt-badge {
-							font-size: 1.1rem;
-							padding: .1rem .5rem;
-							border-radius: 3px;
-							background: var(--color03);
-							color: var(--color01);
-							font-weight: 600;
+						.check-icon {
+							color: var(--color03);
+							font-size: 1.85rem;
+							line-height: 1;
+						}
 
-							&.error {
-								background: var(--color04);
-							}
+						.attempt-circle {
+							width: 1.85rem;
+							height: 1.85rem;
+							border-radius: 50%;
+							background: var(--color04);
+							color: var(--color01);
+							font-size: 1rem;
+							font-weight: 700;
+							display: inline-flex;
+							align-items: center;
+							justify-content: center;
+							line-height: 1;
+							flex-shrink: 0;
 						}
 					}
 				}
