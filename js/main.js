@@ -10,9 +10,11 @@ createApp({
     screen: "homeScreen", // homeScreen | newGameSettingsScreen | gameScreen | resultScreen | learningTableScreen
 	gameSettings: {
 		numbers: [],
-		queue: []
+		queue: [],
+		timeLimit: null
 	},
 	numbers: [],
+	timeLimit: null, // null (bez limitu) | 3 | 5 | 10
 	headerApp,
 	homeScreen,
     learningTableScreen,

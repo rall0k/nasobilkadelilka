@@ -58,6 +58,25 @@ export function newGameSettingsScreen(props) {
 								</button>
 							</section>
 						</section>
+						<section class="box">
+							<h1 class="caption">Časový limit na otázku</h1>
+							<section class="choices">
+								<button 
+									@click="setTimeLimit(null)"
+									:class="{'active': timeLimit === null}"
+									title="Bez časového limitu"
+								>
+									&infin;
+								</button>
+								<button 
+									v-for="sec in [3, 5, 10]"
+									@click="setTimeLimit(sec)"
+									:class="{'active': timeLimit === sec}"
+								>
+									{{ sec }}s
+								</button>
+							</section>
+						</section>
 						<!-- <section class="box">
 							<h1 class="caption">Režím</h1>
 							<section class="choices"></section>
@@ -79,6 +98,9 @@ export function newGameSettingsScreen(props) {
 			else {
 				this.numbers.push(number)
 			}
+		},
+		setTimeLimit(limit) {
+			this.timeLimit = limit
 		},
 		startGame() {
 			const examples = []
@@ -104,7 +126,8 @@ export function newGameSettingsScreen(props) {
 
 			this.gameSettings = {
 				numbers: shuffledExamples,
-				queue: shuffledExamples.map((_, index) => index)
+				queue: shuffledExamples.map((_, index) => index),
+				timeLimit: this.timeLimit
 			}
 			this.screen = 'gameScreen'
 		}
