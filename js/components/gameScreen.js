@@ -75,6 +75,7 @@ export function gameScreen(props) {
 		feedbackState: '',
 		remainingTime: 0,
 		timerInterval: null,
+		questionStartTime: null,
 
 		initTimer() {
 			this.startQuestionTimer()
@@ -87,8 +88,21 @@ export function gameScreen(props) {
 			}
 		},
 
+		recordThinkingTime(current) {
+			if (!this.questionStartTime) return
+			const elapsed = Math.max(0, Date.now() - this.questionStartTime)
+			this.questionStartTime = null
+			if (current) {
+				current.thinkingTimeMs = (current.thinkingTimeMs || 0) + elapsed
+			}
+			if (this.gameSettings) {
+				this.gameSettings.totalThinkingTimeMs = (this.gameSettings.totalThinkingTimeMs || 0) + elapsed
+			}
+		},
+
 		startQuestionTimer() {
 			this.clearTimer()
+			this.questionStartTime = Date.now()
 			if (!this.gameSettings || !this.gameSettings.timeLimit) return
 
 			this.remainingTime = this.gameSettings.timeLimit
@@ -113,6 +127,7 @@ export function gameScreen(props) {
 			const current = this.gameSettings.numbers[currentIdx]
 			if (!current) return
 
+			this.recordThinkingTime(current)
 			this.isChecking = true
 			current.attempts++
 			current.solved = false
@@ -176,6 +191,7 @@ export function gameScreen(props) {
 			if (!current) return
 
 			this.clearTimer()
+			this.recordThinkingTime(current)
 			this.selectedChoice = choice
 			this.isChecking = true
 			current.attempts++

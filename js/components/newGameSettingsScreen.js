@@ -144,6 +144,7 @@ export function newGameSettingsScreen(props) {
 							n2: i,
 							attempts: 0,
 							wrongAttempts: 0,
+							thinkingTimeMs: 0,
 							solved: false,
 							status: 'unanswered', // unanswered | correct | wrong
 							example: `${dividend} : ${number}`,
@@ -156,6 +157,7 @@ export function newGameSettingsScreen(props) {
 							n2: i,
 							attempts: 0,
 							wrongAttempts: 0,
+							thinkingTimeMs: 0,
 							solved: false,
 							status: 'unanswered', // unanswered | correct | wrong
 							example: `${number} x ${i}`,
@@ -172,7 +174,8 @@ export function newGameSettingsScreen(props) {
 				numbers: shuffledExamples,
 				queue: shuffledExamples.map((_, index) => index),
 				timeLimit: this.timeLimit,
-				mode: this.mode
+				mode: this.mode,
+				totalThinkingTimeMs: 0
 			}
 			this.screen = 'gameScreen'
 		}

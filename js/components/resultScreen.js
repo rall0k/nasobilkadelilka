@@ -25,6 +25,10 @@ export function resultScreen(props) {
 								<span class="value">{{ totalAttempts() }}</span>
 							</div>
 							<div class="stat-item">
+								<span class="label">Priemerný čas premýšľania:</span>
+								<span class="value">{{ averageThinkingTime() }} s</span>
+							</div>
+							<div class="stat-item">
 								<span class="label">Úspešnosť:</span>
 								<span class="value">{{ successRate() }} %</span>
 							</div>
@@ -74,6 +78,13 @@ export function resultScreen(props) {
 		totalWrongAttempts() {
 			if (!this.gameSettings || !this.gameSettings.numbers) return 0
 			return this.gameSettings.numbers.reduce((sum, item) => sum + item.wrongAttempts, 0)
+		},
+
+		averageThinkingTime() {
+			const attempts = this.totalAttempts()
+			if (!attempts || !this.gameSettings) return '0.00'
+			const totalMs = this.gameSettings.totalThinkingTimeMs || 0
+			return (totalMs / attempts / 1000).toFixed(2)
 		},
 
 		successRate() {
