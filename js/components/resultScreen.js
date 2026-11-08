@@ -32,6 +32,10 @@ export function resultScreen(props) {
 								<span class="label">Úspešnosť:</span>
 								<span class="value">{{ successRate() }} %</span>
 							</div>
+							<div class="stat-item">
+								<span class="label">Známka:</span>
+								<span class="value">{{ grade() }}</span>
+							</div>
 						</div>
 					</section>
 
@@ -91,6 +95,15 @@ export function resultScreen(props) {
 			const attempts = this.totalAttempts()
 			if (!attempts) return 0
 			return Math.round((this.totalExamples() / attempts) * 100)
+		},
+
+		grade() {
+			const rate = this.successRate()
+			if (rate >= 90) return 1
+			if (rate >= 75) return 2
+			if (rate >= 56) return 3
+			if (rate >= 40) return 4
+			return 5
 		},
 
 		practicedNumbers() {
