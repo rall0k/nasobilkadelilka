@@ -7,7 +7,12 @@ import { gameScreen } from './components/gameScreen.js'
 import { resultScreen } from './components/resultScreen.js'
 
 createApp({
-    screen: "newGameSettingsScreen", // homeScreen | newGameSettingsScreen | gameScreen | resultScreen | learningTableScreen
+    screen: "homeScreen", // homeScreen | newGameSettingsScreen | gameScreen | resultScreen | learningTableScreen
+	gameSettings: {
+		numbers: [],
+		queue: []
+	},
+	numbers: [],
 	headerApp,
 	homeScreen,
     learningTableScreen,

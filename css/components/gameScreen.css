@@ -1,0 +1,165 @@
+.gameScreen {
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2.5rem;
+		padding: 2rem;
+		max-width: 700px;
+		margin: 0 auto;
+
+		.progress-panel {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+
+			.progress-stats {
+				display: flex;
+				gap: 2rem;
+				align-items: center;
+				justify-content: center;
+				flex-wrap: wrap;
+
+				.wrong-badge {
+					color: var(--color04);
+					font-weight: 600;
+				}
+			}
+
+			.progress-dots {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: .5rem;
+
+				.dot {
+					width: 1.1rem;
+					height: 1.1rem;
+					border: 1px solid var(--color02);
+					border-radius: 3px;
+					background: var(--color01);
+					transition: 250ms;
+
+					&.solved {
+						background: var(--color03);
+						border-color: var(--color03);
+					}
+
+					&.wrong {
+						background: var(--color04);
+						border-color: var(--color04);
+					}
+
+					&.current {
+						transform: scale(1.25);
+						box-shadow: 0 0 0 2px var(--color02);
+					}
+				}
+			}
+		}
+
+		.box {
+			margin-top: 1.5rem;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 2.5rem;
+			border: 1px solid var(--color02);
+			border-radius: 3px;
+			position: relative;
+			padding: 3.5rem 2rem 2.5rem;
+			box-sizing: border-box;
+
+			&.box-wrong {
+				border-color: var(--color04);
+
+				.caption {
+					border-color: var(--color04);
+					color: var(--color04);
+				}
+			}
+
+			.caption {
+				position: absolute;
+				padding: .25rem 1.5rem;
+				border: 1px solid var(--color02);
+				border-radius: 3px;
+				top: -25px;
+				background: var(--color01);
+				text-align: center;
+				margin: 0 auto;
+				font-size: 1.55rem;
+			}
+
+			.example {
+				font-size: 3.5rem;
+				font-weight: 700;
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: .75rem;
+
+				.answer-slot {
+					display: inline-block;
+					text-align: center;
+
+					&.correct {
+						color: var(--color03);
+					}
+
+					&.wrong {
+						color: var(--color04);
+					}
+				}
+			}
+
+			.choices {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 1.5rem;
+
+				button {
+					width: 6rem;
+					height: 6rem;
+					padding: 1rem;
+					border: 1px solid var(--color02);
+					border-radius: 3px;
+					background: var(--color01);
+					font-size: 2rem;
+					font-family: inherit;
+					font-weight: 600;
+					color: var(--color02);
+					transition: 250ms;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					&:hover:not(:disabled) {
+						cursor: pointer;
+						background: var(--color02);
+						color: var(--color01);
+					}
+
+					&.correct {
+						background: var(--color03);
+						border-color: var(--color03);
+						color: var(--color01);
+					}
+
+					&.wrong {
+						background: var(--color04);
+						border-color: var(--color04);
+						color: var(--color01);
+					}
+				}
+			}
+		}
+	}
+}
