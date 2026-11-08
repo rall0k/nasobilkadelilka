@@ -34,7 +34,10 @@ export function resultScreen(props) {
 							</div>
 							<div class="stat-item">
 								<span class="label">Známka:</span>
-								<span class="value">{{ grade() }}</span>
+								<span class="value grade-value" :class="'grade-' + grade()">
+									{{ grade() }}
+									<i class="fa-solid" :class="gradeIcon()"></i>
+								</span>
 							</div>
 						</div>
 					</section>
@@ -104,6 +107,18 @@ export function resultScreen(props) {
 			if (rate >= 56) return 3
 			if (rate >= 40) return 4
 			return 5
+		},
+
+		gradeIcon() {
+			const currentGrade = this.grade()
+			const icons = {
+				1: 'fa-face-laugh-beam',
+				2: 'fa-face-smile',
+				3: 'fa-face-meh',
+				4: 'fa-face-frown',
+				5: 'fa-face-sad-tear'
+			}
+			return icons[currentGrade] || 'fa-face-meh'
 		},
 
 		practicedNumbers() {

@@ -61,6 +61,36 @@
 						&.error {
 							color: var(--color04);
 						}
+
+						&.grade-value {
+							display: inline-flex;
+							align-items: center;
+							gap: .5rem;
+
+							i {
+								font-size: 1.7rem;
+							}
+						}
+
+						&.grade-1 {
+							color: var(--color03);
+						}
+
+						&.grade-2 {
+							color: #4AD991;
+						}
+
+						&.grade-3 {
+							color: #FFD166;
+						}
+
+						&.grade-4 {
+							color: #FFA94D;
+						}
+
+						&.grade-5 {
+							color: var(--color04);
+						}
 					}
 				}
 			}
